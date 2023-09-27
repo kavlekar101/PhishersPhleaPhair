@@ -6,16 +6,20 @@ import { useState } from "react";
 const Purchase = () => {
     let title = 'purchase';
     const [order, setOrder] = useState({
-        buyQuanity: [0,0,0,0,0], credit_card_numer: '', expir_date: '', cvvCode: '',
+        buyQuantity: [0,0,0,0,0], credit_card_numer: '', expir_date: '', cvvCode: '',
         card_holder_name: '', adress_1: '', address_2: '', city: '', state: '', zip: '',
     });
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        navigate('/purchase/paymentEntry', {order: order, setOrder: setOrder})
-    }
+    // React.useEffect(() => {
+    //     console.log('order: ');
+    //     console.log('order: ', order);
+    // }, [order]);
 
-    console.log('order: ', order);
+    const handleSubmit = (e) => {
+        console.log(order);
+        navigate("/purchase/paymentEntry", { state: { order: order } });
+    }
 
     return (
         <div>
@@ -25,7 +29,7 @@ const Purchase = () => {
                     type="number"
                     required
                     onChange={(e) => 
-                        {order.buyQuanity[0] = e.target.value;}}
+                        {order.buyQuantity[0] = e.target.value;}}
                 />
                 <br/>
                 <label>Product 2</label>
@@ -33,7 +37,7 @@ const Purchase = () => {
                     type="number"
                     required
                     onChange={(e) => 
-                        {order.buyQuanity[1] = e.target.value;}}
+                        {order.buyQuantity[1] = e.target.value;}}
                 />
                 <br/>
                 <button className='button'>Pay</button>
