@@ -23,9 +23,9 @@ function App() {
     <Navbar />
       <div className="content">
       <Routes>
-      <Route path='/home' element={<Home/>} />
+      {/* <Route path='/home' element={<Home/>} />
       <Route path='/about' element={<About/>} />
-      <Route path='/cart' element={<Cart/>} />
+      <Route path='/cart' element={<Cart/>} /> */}
 
       <Route path='/purchase' element={<Purchase/>} />
       <Route path="/" element={<Navigate replace to="/purchase" />} />
