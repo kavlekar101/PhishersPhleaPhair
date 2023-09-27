@@ -20,6 +20,7 @@ const Purchase = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <label>Product 1</label>
                 <input
                     type="number"
                     required
