@@ -26,7 +26,7 @@ const PaymentEntry = () => {
                     type="string"
                     required
                     onChange={(e) => 
-                        {location.state.order.credit_card_number = e.target.value;}}
+                        {order.credit_card_number = e.target.value;}}
                 />
                 <br/>
                 <label>Expiration Date</label>
@@ -34,7 +34,7 @@ const PaymentEntry = () => {
                     type="number"
                     required
                     onChange={(e) => 
-                        {location.state.order.expir_date = e.target.value;}}
+                        {order.expir_date = e.target.value;}}
                 />
                 <br/>
                 <label>CVV Code</label>
@@ -42,7 +42,7 @@ const PaymentEntry = () => {
                     type="number"
                     required
                     onChange={(e) => 
-                        {location.state.order.cvvCode = e.target.value;}}
+                        {order.cvvCode = e.target.value;}}
                 />
                 <br/>
                 <label>Card Holder Name</label>
@@ -50,7 +50,7 @@ const PaymentEntry = () => {
                     type="string"
                     required
                     onChange={(e) => 
-                        {location.state.order.card_holder_name = e.target.value;}}
+                        {order.card_holder_name = e.target.value;}}
                 />
                 <br/>
                 <button className='button'>Continue</button>
