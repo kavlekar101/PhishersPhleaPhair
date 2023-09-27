@@ -1,6 +1,9 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const purchase = () => {
+const Purchase = () => {
     let title = 'purchase';
     const [order, setOrder] = useState({
         buyQuanity: [0,0,0,0,0], credit_card_numer: '', expir_date: '', cvvCode: '',
@@ -38,4 +41,4 @@ const purchase = () => {
     );
 };
 
-export default purchase;
+export default Purchase;
