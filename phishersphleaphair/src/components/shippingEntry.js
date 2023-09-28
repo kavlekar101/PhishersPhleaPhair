@@ -32,14 +32,14 @@ const ShippingEntry = () => {
                 <input
                     type="string"
                     required
-                    onChange = { (e) => { order.adress_1 = e.target.value; } }
+                    onChange = { (e) => { order.address_1 = e.target.value; } }
                 />
                 <br/>
                 <label>Address 2</label>
                 <input
                     type="string"
                     required
-                    onChange = { (e) => { order.adress_2 = e.target.value; } }
+                    onChange = { (e) => { order.address_2 = e.target.value; } }
                 />
                 <br/>
                 <label>City</label>

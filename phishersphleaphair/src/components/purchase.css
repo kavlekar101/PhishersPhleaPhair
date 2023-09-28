@@ -43,3 +43,6 @@
     text-align: left;
     cursor: pointer;
   }
+  .table {
+    text-align: center;
+  }

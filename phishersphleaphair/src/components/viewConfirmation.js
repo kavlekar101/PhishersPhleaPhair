@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const viewConfirmation = () => {
+const ViewConfirmation = () => {
     return (
         <div>
             <h1>Thank you for your purchase!</h1>
@@ -11,4 +11,4 @@ const viewConfirmation = () => {
     );
 };
 
-export default viewConfirmation;
+export default ViewConfirmation;
