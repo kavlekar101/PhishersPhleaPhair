@@ -13,20 +13,20 @@ import Home from './components/home';
 import About from './components/about';
 import Cart from './components/cart';
 
+import background from './images/fishBackground.png'
 
 function App() {
 
 
   return (
-    <div className="App">
+    <div style={{ backgroundImage: `url(${ background })`}} className="App">
     <Router>
     <Navbar />
       <div className="content">
       <Routes>
-      {/* <Route path='/home' element={<Home/>} />
+      <Route path='/home' element={<Home/>} />
       <Route path='/about' element={<About/>} />
-      <Route path='/cart' element={<Cart/>} /> */}
-
+      <Route path='/cart' element={<Cart/>} />
       <Route path='/purchase' element={<Purchase/>} />
       <Route path="/" element={<Navigate replace to="/purchase" />} />
       <Route path='/purchase/paymentEntry' element={<PaymentEntry/>} />

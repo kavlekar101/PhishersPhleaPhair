@@ -12,7 +12,7 @@ const SampleFooter = () => (
       title: 'contact us',
       items: [
         {
-          title: 'adress',
+          title: 'address',
           url: 'https://ceo/',
           openExternal: true,
         },
