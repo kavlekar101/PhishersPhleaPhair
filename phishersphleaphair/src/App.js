@@ -19,27 +19,39 @@ function App() {
 
 
   return (
-    <div style={{ backgroundImage: `url(${ background })`}} className="App">
-    <Router>
-    <Navbar />
-      <div className="content">
-      <Routes>
-      <Route path='/home' element={<Home/>} />
-      <Route path='/about' element={<About/>} />
-      <Route path='/cart' element={<Cart/>} />
-      <Route path='/purchase' element={<Purchase/>} />
-      <Route path="/" element={<Navigate replace to="/purchase" />} />
-      <Route path='/purchase/paymentEntry' element={<PaymentEntry/>} />
-      <Route path='/purchase/shippingEntry' element={<ShippingEntry/>} />
-      <Route path='/purchase/viewOrder' element={<ViewOrder/>} />
-      <Route path='/purchase/viewConfirmation' element={<ViewConfirmation/>} />
-      </Routes>
-      </div>
-      <SampleFooter />
-    </Router>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        position: "fixed", // This will position the element relative to the viewport
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+      className="App"
+    >
+      <Router>
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/purchase" element={<Purchase />} />
+            <Route path="/" element={<Navigate replace to="/purchase" />} />
+            <Route path="/purchase/paymentEntry" element={<PaymentEntry />} />
+            <Route path="/purchase/shippingEntry" element={<ShippingEntry />} />
+            <Route path="/purchase/viewOrder" element={<ViewOrder />} />
+            <Route
+              path="/purchase/viewConfirmation"
+              element={<ViewConfirmation />}
+            />
+          </Routes>
+        </div>
+        <SampleFooter />
+      </Router>
     </div>
-
-
   );
   
 }
