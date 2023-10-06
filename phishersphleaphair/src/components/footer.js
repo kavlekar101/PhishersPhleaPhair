@@ -9,20 +9,16 @@ const SampleFooter = () => (
   autoFocus
   columns={[
     {
-      title: 'contact us',
+      title: 'Contact us here:',
       items: [
         {
-          title: 'address',
-          url: 'https://ceo/',
-          openExternal: true,
+          title: 'Address: 123 Pacific Ave, New York, NY 10025',
         },
         {
-          title: 'email',
-          url: 'https://ceo/',
-          openExternal: true,
+          title: 'Email: phishers@pond.com',
         },
         {
-          title: 'phone',
+          title: 'Phone: 123-456-7890',
           url: 'https://ceo/',
           openExternal: true,
         },
