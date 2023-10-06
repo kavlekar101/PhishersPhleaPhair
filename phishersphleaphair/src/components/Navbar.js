@@ -46,7 +46,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Purchase
+                Products
               </NavLink>
             </li>
             <li className="nav-item">
