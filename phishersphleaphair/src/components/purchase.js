@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from 'axios';
 
 const Purchase = () => {
     let title = 'purchase';
@@ -11,15 +12,23 @@ const Purchase = () => {
     });
     const navigate = useNavigate();
 
-    // React.useEffect(() => {
-    //     console.log('order: ');
-    //     console.log('order: ', order);
-    // }, [order]);
-
     const handleSubmit = (e) => {
         console.log(order);
         navigate("/purchase/paymentEntry", { state: { order: order } });
     }
+
+    useEffect(() => {
+        // query the order info
+        axios.get('http://localhost:7000/get_item', {
+            params: {}
+        }).then((data) => {
+            const data_ = JSON.parse(JSON.stringify(data.data));
+            data_.forEach(order_ => {
+                order.buyQuantity[order_.Id - 1] = order_.quanity;
+            });
+            setOrder({...order});
+        });
+    }, []);
 
     return (
         <div>
