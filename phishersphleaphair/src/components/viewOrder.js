@@ -10,6 +10,15 @@ const ViewOrder = () => {
   const [order, setOrder] = useState(location.state.order);
 
   const handleSubmit = (e) => {
+  // after user has confirmed, change db
+//        axios.post('http://localhost:7000/update_quanity', {
+//          names: [1, 2],
+//          quanity: [order.buyQuantity[0], order.buyQuantity[1]]
+//        }).then(function(response) {
+////            console.log("response: " + JSON.stringify(response));
+//        }).catch(function(error) {
+//            console.log("error: " + JSON.stringify(error));
+//        });
     navigate("/purchase/viewConfirmation", {state: { order: order }});
   };
 
