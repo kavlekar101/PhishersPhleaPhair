@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require('./db');
 const app = express();
-const port = 7000;
+const port = 7001;
 const cors = require('cors');
 
 const corsOptions = {
@@ -44,9 +44,25 @@ app.get("/get_item", function(req, res) {
    return res.send(result);
 });
 
+const checkInventory = (quanity) => {
+    const inventory = db.query('select * from Item');
+
+    let res = true;
+    inventory.forEach((inven_) => {
+        if(inven_.quanity < quanity[inven_.Id - 1]) {
+            res = false;
+        }
+    });
+    return res;
+}
+
 app.post("/update_quanity", function(req, res) {
     var IDs = req.body.names;
     var quanity = req.body.quanity;
+
+    if(!checkInventory(quanity)) {
+        return res.send("Sorry, we don't have enough items for you.");
+    }
 
     IDs.forEach((id_, index) => {
         const quan = quanity[index];
