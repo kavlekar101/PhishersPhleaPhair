@@ -4,15 +4,7 @@ import "./home.css";
 const Home = () => {
   
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url('../assets/Fishy.png')",
-        // backgroundSize: "cover",
-        // height: "300px",
-        // width: "300px",
-      }}
-    >
+    <div>
       <h1>Welcome to Phishers Phlea Phair!</h1>
       <h2 class="home-subheadings">Mission:</h2>
       <div class="body-text">
