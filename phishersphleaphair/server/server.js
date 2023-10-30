@@ -1,8 +1,7 @@
 const express = require("express");
-const bodyParser = require("body-parser")
 const db = require('./db');
 const app = express();
-const port = 7000;
+const port = 7001;
 const cors = require('cors');
 
 const corsOptions = {
@@ -15,11 +14,6 @@ app.use(cors(corsOptions));
 
 // set access port
 app.use(express.json());
-
-app.use(bodyParser.json());
-
-var jsonParser = bodyParser.json();
-
 app.listen(port, () => {
     // eslint-disable-next-line no-template-curly-in-string
     console.log('RUN http://localhost:' + port);
@@ -50,9 +44,25 @@ app.get("/get_item", function(req, res) {
    return res.send(result);
 });
 
-app.post("/update_quanity", jsonParser, function(req, res) {
+const checkInventory = (quanity) => {
+    const inventory = db.query('select * from Item');
+
+    let res = true;
+    inventory.forEach((inven_) => {
+        if(inven_.quanity < quanity[inven_.Id - 1]) {
+            res = false;
+        }
+    });
+    return res;
+}
+
+app.post("/update_quanity", function(req, res) {
     var IDs = req.body.names;
     var quanity = req.body.quanity;
+
+    if(!checkInventory(quanity)) {
+        return res.send("Sorry, we don't have enough items for you.");
+    }
 
     IDs.forEach((id_, index) => {
         const quan = quanity[index];
