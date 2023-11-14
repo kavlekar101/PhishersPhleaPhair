@@ -2,7 +2,21 @@ import React, { useEffect } from "react";
 // import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import {ProductCatalog} from "./tiles.js";
 import axios from "axios";
+import "./purchase.css";
+import {products} from "./products.js";
+
+//function getWindowDimensions() {
+//  const {
+//    innerWidth: width,
+//    innerHeight: height,
+//  } = window;
+//  return {
+//    width,
+//    height
+//  };
+//}
 
 const Purchase = () => {
   // let title = 'purchase';
@@ -20,6 +34,18 @@ const Purchase = () => {
     zip: "",
   });
   const navigate = useNavigate();
+
+//  const useWindowDimensions = () => {
+//    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+//  }
+
+//  useEffect(() => {
+//    function handleResize() {
+//      setWindowDimensions(getWindowDimensions());
+//    }
+//    window.addEventListener('resize', handleResize);
+//    return () => window.removeEventListener('resize', handleResize);
+//  }, []);
 
   const purchaseHandler = (e) => {
     e.preventDefault();
@@ -63,29 +89,7 @@ const Purchase = () => {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={purchaseHandler}>
-        <label>Product 1</label>
-        <input
-          type="number"
-          required
-          onChange={(e) => {
-            order.buyQuantity[0] = e.target.value;
-          }}
-        />
-        <br />
-        <label>Product 2</label>
-        <input
-          type="number"
-          required
-          onChange={(e) => {
-            order.buyQuantity[1] = e.target.value;
-          }}
-        />
-        <br />
-        <button className="button">Pay</button>
-      </form>
-    </div>
+    <ProductCatalog products={products}></ProductCatalog>
   );
 };
 
